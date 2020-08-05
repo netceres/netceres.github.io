@@ -8,6 +8,7 @@ body
 {
     margin:0px;
     background-color:#413f3f;
+	font-family: 'Roboto', sans-serif;
 }
 header
 {
@@ -19,6 +20,8 @@ header
     background-color:#538fa9;
     border:0px;
     box-shadow:3px 3px 4px;
+	font-weight:bold;
+	padding-top:0px;
 }
 
 navigation
@@ -58,7 +61,6 @@ ul
     color:#dddddd;
     font-weight:bold;
     font-size:20px;
-    font-family: 'Roboto', sans-serif;
     /*color*/
     background-color:#2c2c2c;
     border:0px;
@@ -77,9 +79,53 @@ ul
 	display:inline-block;
 }
 
-#menu_img
+#logo
 {
-    margin:20px 0px 0px 20px;
+	display:inline-block;
+	position:absolute;
+	left:60px;
+}
+
+#login
+{
+	position:absolute;
+	right:35px;
+	top:25px;
+	display:inline-block;
+}
+
+#search
+{
+    position:absolute;
+	left:375px;
+	margin-top:5px;
+	padding:15px;
+	align:center;
+	display:inline-block;
+	float:left;
+}
+
+.search_bar
+{
+	border:solid #413f3f 3px ; 
+	border-radius:20px 0px 0px 20px;
+	background-color:#333131;
+	color:grey;
+	height:32px;
+	width:575px;
+	margin-right:0px;
+}
+
+.search_button
+{
+	position:absolute;
+	margin-left:0px;
+	height:32px;
+	border:solid #413f3f 3px ; 
+	border-radius:0px 20px 20px 0px;
+	background-color:#413f3f;
+	color:grey;
+	padding-right:10px;
 }
 </style>
 </head>
@@ -87,7 +133,12 @@ ul
 <body>
     
     <header>
-        <div id="menu_img"></div>
+		<div id='logo'><h1>NetCeres</h1></div>
+	    <div id='search'>
+			<input class="search_bar" type="text"></input>
+			<button class="search_button">Go</button>
+		</div>
+		<div id='login'>login</div>
     </header>
 
     <navigation>
@@ -115,7 +166,9 @@ ul
 	<script>
 		$(document).ready(function(){
 		    var navheight=($(window).height())*90/100;
-			$(navigation).css('height','navheight');
+			$(navigation).css('height',navheight+px);
+			var width=$(window).width();
+			$('#search').css('left',(width/4)+'px');
 		});
 	</script>
 </body>
